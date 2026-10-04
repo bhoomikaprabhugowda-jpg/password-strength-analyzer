@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#eef4f1">
+  <title>Password Strength Analyzer</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="page-shell">
+    <section class="analyzer" aria-labelledby="page-title">
+      <header class="page-header">
+        <p class="eyebrow">YOUR SECURITY, AT A GLANCE</p>
+        <h1 id="page-title">Password Strength Analyzer</h1>
+        <p class="subtitle">Check how strong your password is</p>
+      </header>
+
+      <div class="password-section">
+        <label for="password-input">Enter a password</label>
+        <div class="password-field">
+          <input
+            id="password-input"
+            name="password"
+            type="password"
+            autocomplete="new-password"
+            placeholder="Type a password to begin"
+            aria-describedby="privacy-note"
+            spellcheck="false"
+          >
+          <button class="text-button" id="toggle-password" type="button" aria-controls="password-input" aria-pressed="false">
+            Show
+          </button>
+        </div>
+      </div>
+
+      <section class="strength-section" aria-label="Password strength">
+        <div class="strength-heading">
+          <span class="section-label">STRENGTH</span>
+          <span class="strength-level" id="strength-level">Not rated</span>
+        </div>
+        <div
+          class="strength-track"
+          id="strength-track"
+          role="meter"
+          aria-label="Password strength score"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          aria-valuenow="0"
+        >
+          <div class="strength-fill" id="strength-fill"></div>
+        </div>
+        <div class="score-row">
+          <span>Strength score</span>
+          <strong id="strength-score">0/100</strong>
+        </div>
+      </section>
+
+      <section class="requirements-section" aria-labelledby="requirements-title">
+        <h2 class="section-title" id="requirements-title">Password requirements</h2>
+        <ul class="requirements-list">
+          <li class="requirement" id="requirement-length" aria-checked="false" role="checkbox">
+            <span class="check-icon" aria-hidden="true"></span><span>At least 8 characters</span>
+          </li>
+          <li class="requirement" id="requirement-uppercase" aria-checked="false" role="checkbox">
+            <span class="check-icon" aria-hidden="true"></span><span>Uppercase letter</span>
+          </li>
+          <li class="requirement" id="requirement-lowercase" aria-checked="false" role="checkbox">
+            <span class="check-icon" aria-hidden="true"></span><span>Lowercase letter</span>
+          </li>
+          <li class="requirement" id="requirement-number" aria-checked="false" role="checkbox">
+            <span class="check-icon" aria-hidden="true"></span><span>Number</span>
+          </li>
+          <li class="requirement" id="requirement-special" aria-checked="false" role="checkbox">
+            <span class="check-icon" aria-hidden="true"></span><span>Special character</span>
+          </li>
+        </ul>
+      </section>
+
+      <section class="feedback-section" aria-labelledby="feedback-title">
+        <h2 class="section-title" id="feedback-title">Suggestions</h2>
+        <p class="common-warning" id="common-warning" role="alert" hidden>
+          ⚠ This is a commonly used password. Choose a different password.
+        </p>
+        <ul class="suggestion-list" id="suggestion-list" aria-live="polite">
+          <li>Enter a password to see suggestions.</li>
+        </ul>
+      </section>
+
+      <div class="actions">
+        <button class="button button-primary" id="generate-password" type="button">
+          <span aria-hidden="true">✳</span> Generate strong password
+        </button>
+        <button class="button button-secondary" id="copy-password" type="button" disabled>
+          <span aria-hidden="true">▣</span> Copy password
+        </button>
+      </div>
+      <p class="action-status" id="action-status" role="status" aria-live="polite"></p>
+
+      <aside class="privacy-note" id="privacy-note">
+        <span class="privacy-mark" aria-hidden="true">●</span>
+        <p>Your password is analyzed locally and is never sent to a server.</p>
+      </aside>
+      <p class="reuse-note">
+        Reuse across other sites cannot be detected here. We don't store or compare passwords; only a small local list of common passwords is checked.
+      </p>
+    </section>
+
+    <footer class="page-footer">PRIVATE BY DESIGN <span aria-hidden="true">·</span> NO ACCOUNT NEEDED</footer>
+  </main>
+</body>
+</html>
